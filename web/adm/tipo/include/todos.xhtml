@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Todos</title>
+    </h:head>
+    <h:body>
+        <f:view encoding="ISO-8859-1">
+            <h:form>
+                <p:dataTable id="table1" var="imo" value="#{tipoBean.tipos}" emptyMessage="Não existem registros"> 
+                    
+                    <p:column headerText="Nome">
+                        <h:commandLink action="#{tipoBean.verDetalhe(imo)}">
+                            <h:outputText value="#{imo.nome}"/> 
+                        </h:commandLink>
+
+                    </p:column> 
+                    <p:column headerText=""> 
+                        
+                        <h:commandLink action="#{tipoBean.excluir(imo)}">
+                            <h:outputText value="Excluir"/> 
+                        </h:commandLink>
+                    </p:column> 
+
+
+                </p:dataTable>
+
+                <!-- <p:poll interval="3" update="table1" />-->
+
+
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

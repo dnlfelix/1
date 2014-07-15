@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head/>
+    <h:body>
+        <h:form>
+            <p:menu style="font-size: 12px;">
+                <p:submenu label="Imóvel">
+                    <p:menuitem value="Novo" action="#{imovelBean.criarNovo()}" icon="ui-icon-star"/>
+                    <p:menuitem value="Todos" outcome="admimotodos" icon="ui-icon-star"/>
+                </p:submenu>
+                <p:submenu label="Tipo">
+                    <p:menuitem value="Novo" action="#{tipoBean.criarNovo()}" icon="ui-icon-star"/>
+                    <p:menuitem value="Todos" outcome="admtiptodos" icon="ui-icon-star"/>
+                </p:submenu>
+                <p:submenu label="Finalidade">
+                    <p:menuitem value="Novo" action="#{finalidadeBean.criarNovo()}" icon="ui-icon-star"/>
+                    <p:menuitem value="Todos" outcome="admfintodos" icon="ui-icon-star"/>
+                </p:submenu>
+                <p:submenu label="Administrativo">
+                    <p:menuitem value="Trocar senha" icon="ui-icon-star"/>
+                </p:submenu>
+
+            </p:menu>
+
+        </h:form>
+    </h:body>
+</html>
+

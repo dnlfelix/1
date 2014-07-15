@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admimotodos</from-outcome>
+            <to-view-id>/adm/imovel/pagetodos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admimonovo</from-outcome>
+            <to-view-id>/adm/imovel/pagenovo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admtiptodos</from-outcome>
+            <to-view-id>/adm/tipo/pagetodos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admtipnovo</from-outcome>
+            <to-view-id>/adm/tipo/pagenovo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admfintodos</from-outcome>
+            <to-view-id>/adm/finalidade/pagetodos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admfinnovo</from-outcome>
+            <to-view-id>/adm/finalidade/pagenovo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+
+   
+</faces-config>

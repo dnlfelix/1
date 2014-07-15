@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view encoding="ISO-8859-1">
+            
+            <h:form>
+                <p:contextMenu for="table1">
+                    <p:menuitem value="View" icon="ui-icon-search" action="#{imovelBean.verDetalhe(imo)}"/>
+                    <p:menuitem value="Delete" update="table1" icon="ui-icon-close" action="#{imovelBean.excluir(imo)}"/>
+                </p:contextMenu>
+
+
+                <p:dataTable id="table1" var="imo" value="#{imovelBean.imovels}" emptyMessage="Não existem registros" widgetVar="carsTable"> 
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Pesquisa geral:" />
+                            <p:inputText id="globalFilter" onkeyup="PF('carsTable').filter()" style="width:150px" placeholder="Pesquisar"/>
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column headerText="Referência" filterBy="#{imo.referencia}"> 
+                        <h:outputText value="#{imo.referencia}"/> 
+                    </p:column>
+                    <p:column headerText="Título" filterBy="#{imo.titulo}"> 
+                        <h:commandLink action="#{imovelBean.verDetalhe(imo)}">
+                            <h:outputText value="#{imo.titulo}" /> 
+                        </h:commandLink>
+                    </p:column> 
+
+                    <p:column headerText="Tipo"  filterBy="#{imo.tipo.nome}"> 
+
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('carsTable').filter()" >
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItems value="#{tipoBean.tipos}" 
+                                               var="tipo"
+                                               itemLabel="#{tipo.nome}" itemValue="#{tipo.nome}"/>
+                            </p:selectOneMenu>
+                        </f:facet>
+
+                        <h:outputText value="#{imo.tipo.nome}" /> 
+                    </p:column> 
+                    <p:column headerText="Finalidade"  filterBy="#{imo.finalidade.nome}"> 
+
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('carsTable').filter()" >
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItems value="#{finalidadeBean.finalidades}" 
+                                               var="finalid"
+                                               itemLabel="#{finalid.nome}" itemValue="#{finalid.nome}"/>
+                            </p:selectOneMenu>
+                        </f:facet>
+                        <h:outputText value="#{imo.finalidade.nome}" /> 
+                    </p:column>
+                    <p:column headerText="Tipo de negocio"  filterBy="#{imo.tipodenegocio}"> 
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('carsTable').filter()" >
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItem id="venda" itemLabel="Venda" itemValue="Venda" />
+                                <f:selectItem id="locacao" itemLabel="Locação" itemValue="Locação" />
+                            </p:selectOneMenu>
+                        </f:facet>
+
+
+                        <h:outputText value="#{imo.tipodenegocio}" /> 
+                    </p:column>
+                    <p:column headerText="Ativo"  filterBy="#{imo.ativo}"> 
+                        <f:facet name="filter">
+                            <p:selectOneButton onchange="PF('carsTable').filter()">
+                                <f:converter converterId="javax.faces.Boolean" />
+                                <f:selectItem itemLabel="Todos" itemValue="" />
+                                <f:selectItem itemLabel="Sim" itemValue="true" />
+                                <f:selectItem itemLabel="Não" itemValue="false" />
+                            </p:selectOneButton>
+
+                        </f:facet>
+                        <h:outputText value="#{imo.ativo ? 'Ativo': 'Desativado'}" />
+
+                    </p:column>
+                    <p:column headerText="Vendido"  filterBy="#{imo.vendido}"> 
+                        <f:facet name="filter">
+                            <p:selectOneButton onchange="PF('carsTable').filter()">
+                                <f:converter converterId="javax.faces.Boolean" />
+                                <f:selectItem itemLabel="Todos" itemValue="" />
+                                <f:selectItem itemLabel="Sim" itemValue="true" />
+                                <f:selectItem itemLabel="Não" itemValue="false" />
+                            </p:selectOneButton>
+
+                        </f:facet>
+                        <h:outputText value="#{imo.vendido ? 'Vendido': 'Disponível'}" />
+
+                    </p:column>
+                    <p:column headerText="Destaque"  filterBy="#{imo.destaque}"> 
+                        <f:facet name="filter">
+                            <p:selectOneButton onchange="PF('carsTable').filter()">
+                                <f:converter converterId="javax.faces.Boolean" />
+                                <f:selectItem itemLabel="Todos" itemValue="" />
+                                <f:selectItem itemLabel="Sim" itemValue="true" />
+                                <f:selectItem itemLabel="Não" itemValue="false" />
+                            </p:selectOneButton>
+
+                        </f:facet>
+                        <h:outputText value="#{imo.destaque ? 'Destaque': 'Normal'}" />
+
+
+                    </p:column>
+
+                    <p:column headerText=""> 
+
+                        <h:commandLink action="#{imovelBean.excluir(imo)}">
+                            <h:outputText value="Excluir"/> 
+                        </h:commandLink>
+                    </p:column> 
+
+
+                </p:dataTable>
+
+                <!-- <p:poll interval="3" update="table1" />-->
+
+
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

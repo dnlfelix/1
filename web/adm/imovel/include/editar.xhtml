@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+        <meta charset="UTF-8"/>
+        <title>Novo Imovel</title>
+    </h:head>
+    <h:body>
+        <f:view encoding="ISO-8859-1">
+            <h:form>
+                <p:messages id="msgs"/>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Referencia: " for="referencia"/>
+                    <p:inputText id="referencia" value="#{imovelBean.imovel.referencia}" disabled="true"/>
+
+                    <p:outputLabel value="Título: " for="titulo"/>
+                    <p:inputText id="titulo" value="#{imovelBean.imovel.titulo}"/>
+
+                    <p:outputLabel value="Vagas: " for="vagas"/>
+                    <p:inputText id="vagas" value="#{imovelBean.imovel.vagas}"/>
+
+                    <p:outputLabel value="Valor: " for="valor"/>
+                    <p:inputText id="valor" value="#{imovelBean.imovel.valor}"/>
+
+                    <p:outputLabel value="Valor médio do condomínio: " for="valormediodocondominio"/>
+                    <p:inputText id="valormediodocondominio" value="#{imovelBean.imovel.valormediodocondominio}"/>
+
+                    <p:outputLabel value="Bairro: " for="bairro"/>
+                    <p:inputText id="bairro" value="#{imovelBean.imovel.bairro}"/>
+
+                    <p:outputLabel value="Cidade: " for="cidade"/>
+                    <p:inputText id="cidade" value="#{imovelBean.imovel.cidade}"/>
+
+                    <p:outputLabel value="Dormitórios: " for="dormitorios"/>
+                    <p:inputText id="dormitorios" value="#{imovelBean.imovel.dormitorios}"/>
+
+                    <p:outputLabel value="Suítes: " for="suites"/>
+                    <p:inputText id="suites" value="#{imovelBean.imovel.suites}"/>
+
+                    <p:outputLabel value="Banheiros: " for="banheiros"/>
+                    <p:inputText id="banheiros" value="#{imovelBean.imovel.banheiros}"/>
+
+                    <p:outputLabel value="Área Útil: " for="areautil"/>
+                    <p:inputText id="areautil" value="#{imovelBean.imovel.areautil}"/>
+
+                    <p:outputLabel value="Área total: " for="areatotal"/>
+                    <p:inputText id="areatotal" value="#{imovelBean.imovel.areatotal}"/>
+
+                    <p:outputLabel value="Área averbada: " for="areaaverbada"/>
+                    <p:inputText id="areaaverbada" value="#{imovelBean.imovel.areaaverbada}"/>
+
+                    <p:outputLabel value="Rua: " for="rua"/>
+                    <p:inputText id="rua" value="#{imovelBean.imovel.rua}"/>
+
+                    <p:outputLabel value="Número: " for="numero"/>
+                    <p:inputText id="numero" value="#{imovelBean.imovel.numero}"/>
+
+                    <p:outputLabel value="Descrição: " for="descricao"/>
+                    <p:inputText id="descricao" value="#{imovelBean.imovel.descricao}"/>
+
+                    <p:outputLabel value="Finalidade: " for="finalidade"/>
+                    <p:selectOneMenu id="finalidade" value="#{imovelBean.imovel.finalidade}" >
+                        <f:selectItems value="#{finalidadeBean.finalidades}" 
+                                       var="finalidade"
+                                       itemLabel="#{finalidade.nome}" 
+                                       itemValue="#{finalidade}" />
+                    </p:selectOneMenu> 
+
+                    <p:outputLabel value="Tipo: " for="tipo"/>
+
+                    <p:selectOneMenu id="tipo" value="#{imovelBean.imovel.tipo}" >
+                        <f:selectItems value="#{tipoBean.tipos}" 
+                                       var="tipo"
+                                       itemLabel="#{tipo.nome}" 
+                                       itemValue="#{tipo}"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Destaque: " for="destaque"/>
+                    <p:selectBooleanCheckbox id="destaque" value="#{imovelBean.imovel.destaque}"/>
+
+
+                    <p:outputLabel value="Tipo de negócio: " for="tipodenegocio"/>
+                    <p:selectOneMenu id="tipodenegocio"
+                                     value="#{imovelBean.imovel.tipodenegocio}">
+                        <f:selectItem id="venda" itemLabel="Venda" itemValue="Venda" />
+                        <f:selectItem id="locacao" itemLabel="Locação" itemValue="Locação" />
+
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value=" Vendido: " for="vendido"/>
+                    
+                    <p:selectBooleanCheckbox id="vendido" value="#{imovelBean.imovel.vendido}"/>
+
+                    <p:outputLabel value=" Ativo: " for="ativo"/>
+                    <p:selectBooleanCheckbox id="ativo" value="#{imovelBean.imovel.ativo}"/>
+
+
+                </h:panelGrid>
+                <h:commandButton value="Salvar" action="#{imovelBean.salvar()}"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
