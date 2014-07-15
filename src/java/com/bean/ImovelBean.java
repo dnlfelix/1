@@ -7,8 +7,7 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 
 import javax.inject.Named;
-//fgh
-//mkl
+
 @Named(value = "imovelBean")
 @SessionScoped
 public class ImovelBean implements Serializable{
