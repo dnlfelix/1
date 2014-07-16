@@ -49,6 +49,8 @@ public class Imovel implements Serializable {
 
     public Imovel() {
         this.tipo = new Tipo();
+        this.finalidade = new Finalidade();
+        this.ativo = true;
     }
 
     public Long getReferencia() {
@@ -227,8 +229,6 @@ public class Imovel implements Serializable {
         this.ativo = ativo;
     }
 
-
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -306,7 +306,5 @@ public class Imovel implements Serializable {
         }
         return true;
     }
-    
-    
 
 }

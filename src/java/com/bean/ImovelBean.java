@@ -13,8 +13,7 @@ import javax.inject.Named;
 public class ImovelBean implements Serializable{
     private Imovel imovel;
     public ImovelBean() {
-        this.imovel = new Imovel();
-        this.imovel.setAtivo(true);
+//        this.imovel = new Imovel();
     }
 
     public Imovel getImovel() {
@@ -48,6 +47,7 @@ public class ImovelBean implements Serializable{
 
     public String criarNovo() {
         this.imovel = new Imovel();
+        this.imovel.setReferencia(null);
 
         return "admimonovo";
     }
